@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Pictures</string>
+    <string name="name">Name</string>
+    <string name="date">Date</string>
+    <string name="tags">Tags</string>
+    <string name="add">Add</string>
+</resources>
