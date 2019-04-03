@@ -35,7 +35,7 @@ class MainAdapter(private val values: ArrayList<String>) : RecyclerView.Adapter<
             var nameText: TextView? = null
 
             init {
-                nameText = itemView.findViewById(R.id.NameText)
+                nameText = itemView.findViewById(R.id.nameInput)
                 //bmiText = itemView.findViewById(R.id.bmiHistory)
 
             }

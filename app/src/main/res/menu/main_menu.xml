@@ -2,5 +2,5 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item app:showAsAction="always" android:icon="@android:drawable/ic_input_add"
-          android:id="@+id/addButton" android:iconTint="@color/colorPrimaryDark" android:title="@string/add"/>
+          android:id="@+id/addTagButton" android:iconTint="@color/colorPrimaryDark" android:title="@string/add"/>
 </menu>
