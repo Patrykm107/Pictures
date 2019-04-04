@@ -1,24 +1,25 @@
 package com.example.pictures
 
 import android.app.Activity
-import android.app.PendingIntent.getActivity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.example.pictures.layout.MainAdapter
+import com.example.pictures.logic.Entry
+import com.example.pictures.logic.MainAdapter
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        const val requestImageCode = 1
+        const val REQUEST_IMAGE_CODE = 1
     }
 
-    private val mainAdapter = MainAdapter(ArrayList())
+    private val mainAdapter = MainAdapter(ArrayList(), this)
     var i=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.addTagButton -> {
                 val intent = Intent(this, AddImageActivity::class.java)
-                startActivityForResult(intent, requestImageCode)
+                startActivityForResult(intent, REQUEST_IMAGE_CODE)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -49,9 +50,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(requestCode == requestImageCode){
+        if (requestCode == REQUEST_IMAGE_CODE) {
             if(resultCode == Activity.RESULT_OK){
-
+                val name = data?.extras!!.getString(AddImageActivity.PIC_NAME_KEY)
+                val url = data.extras!!.getString(AddImageActivity.PIC_URL_KEY)
+                val date = data.extras!!.getString(AddImageActivity.PIC_DATE_KEY)
+                val tags = data.extras!!.getStringArray(AddImageActivity.PIC_TAGS_KEY)
+                val newEntry = Entry(name, url, date, tags)
+                mainAdapter.addItem(newEntry)
             }
             if(resultCode == Activity.RESULT_CANCELED) {
                 Toast.makeText(this,getString(R.string.adding_picture_failed), Toast.LENGTH_LONG).show()

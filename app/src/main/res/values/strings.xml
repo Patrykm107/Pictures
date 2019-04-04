@@ -11,4 +11,5 @@
     <string name="no_empty_input_error">Input cannot be empty</string>
     <string name="same_tag_already_added_error">Same tag already added</string>
     <string name="adding_picture_failed">Adding picture failed</string>
+    <string name="tags_no_spaces_error">Tags cannot contain spaces</string>
 </resources>
