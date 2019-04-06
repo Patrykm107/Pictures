@@ -3,6 +3,7 @@
     <string name="name">Name</string>
     <string name="date">Date</string>
     <string name="tags">Tags</string>
+    <string name="card_tags">Tags:</string>
     <string name="add">Add</string>
     <string name="url">URL</string>
     <string name="add_picture">Add Picture</string>
@@ -12,4 +13,5 @@
     <string name="same_tag_already_added_error">Same tag already added</string>
     <string name="adding_picture_failed">Adding picture failed</string>
     <string name="tags_no_spaces_error">Tags cannot contain spaces</string>
+    <string name="default_string">Default</string>
 </resources>

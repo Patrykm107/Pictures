@@ -42,7 +42,7 @@
                     android:textStyle="bold" android:layout_marginBottom="@dimen/card_text_margin"
                     app:layout_constraintBottom_toTopOf="@+id/cardTagsText"/>
             <TextView
-                    android:text="@string/tags"
+                    android:text="@string/card_tags"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/cardTagsText" app:layout_constraintEnd_toEndOf="parent"

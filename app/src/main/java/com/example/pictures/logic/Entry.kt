@@ -1,4 +1,6 @@
 package com.example.pictures.logic
 
-data class Entry(val name: String, val pictureUrl: String, val date: String, val tags: Array<String>) {
-}
+import android.graphics.Bitmap
+import java.util.*
+
+data class Entry(val name: String, val pictureURL : String, val date: Date)

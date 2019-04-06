@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         const val REQUEST_IMAGE_CODE = 1
     }
 
-    private val mainAdapter = MainAdapter(ArrayList(), this)
+    private val mainAdapter = MainAdapter(ArrayList())
     var i=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,9 +54,9 @@ class MainActivity : AppCompatActivity() {
             if(resultCode == Activity.RESULT_OK){
                 val name = data?.extras!!.getString(AddImageActivity.PIC_NAME_KEY)
                 val url = data.extras!!.getString(AddImageActivity.PIC_URL_KEY)
-                val date = data.extras!!.getString(AddImageActivity.PIC_DATE_KEY)
-                val tags = data.extras!!.getStringArray(AddImageActivity.PIC_TAGS_KEY)
-                val newEntry = Entry(name, url, date, tags)
+                val date = Date()
+                date.time= data.extras!!.getLong(AddImageActivity.PIC_DATE_KEY)
+                val newEntry = Entry(name, url, date)
                 mainAdapter.addItem(newEntry)
             }
             if(resultCode == Activity.RESULT_CANCELED) {
