@@ -17,6 +17,9 @@ import java.text.DateFormat.getDateTimeInstance
 import java.util.*
 
 
+
+
+
 class MainAdapter(private val values: ArrayList<Entry>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     companion object {
         const val MAX_TAG_AMOUNT = 3
@@ -82,5 +85,6 @@ class MainAdapter(private val values: ArrayList<Entry>) : RecyclerView.Adapter<M
             tagsText = itemView.findViewById(R.id.cardTagsText)
         }
     }
+
 
 }

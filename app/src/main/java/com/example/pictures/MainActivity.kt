@@ -13,6 +13,7 @@ import com.example.pictures.logic.Entry
 import com.example.pictures.logic.MainAdapter
 import java.util.*
 
+
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -20,13 +21,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val mainAdapter = MainAdapter(ArrayList())
-    var i=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView : RecyclerView = findViewById(R.id.mainRecycleView)
+        val recyclerView : RecyclerView = findViewById(R.id.mainRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = mainAdapter
     }
@@ -65,4 +65,5 @@ class MainActivity : AppCompatActivity() {
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
 }
