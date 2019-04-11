@@ -72,6 +72,11 @@ class MainAdapter(private val values: ArrayList<Entry>) : RecyclerView.Adapter<M
         this.notifyItemInserted(values.size - 1)
     }
 
+    fun removeItem(position: Int){
+        values.remove(values[position])
+        this.notifyItemRemoved(position)
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nameText: TextView? = null
         var pictureView: ImageView? = null

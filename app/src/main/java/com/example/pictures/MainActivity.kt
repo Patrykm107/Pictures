@@ -12,6 +12,9 @@ import android.widget.Toast
 import com.example.pictures.logic.Entry
 import com.example.pictures.logic.MainAdapter
 import java.util.*
+import android.support.v7.widget.helper.ItemTouchHelper
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +32,25 @@ class MainActivity : AppCompatActivity() {
         val recyclerView : RecyclerView = findViewById(R.id.mainRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = mainAdapter
+
+        val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                //do something
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
+                val position = viewHolder.adapterPosition
+                mainAdapter.removeItem(position)
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -65,5 +87,6 @@ class MainActivity : AppCompatActivity() {
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
 
 }
