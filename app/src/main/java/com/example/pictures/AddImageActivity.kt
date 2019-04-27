@@ -3,7 +3,7 @@ package com.example.pictures
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_add_image.*
 import java.text.DateFormat.getDateTimeInstance
 import java.util.*
