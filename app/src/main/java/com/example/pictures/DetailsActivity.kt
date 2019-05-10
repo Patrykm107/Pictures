@@ -7,7 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-
+import com.example.pictures.fragments.PictureDetailsFragment
+import com.example.pictures.fragments.PictureFragment
 
 
 class DetailsActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val viewPager = findViewById<ViewPager>( R.id.viewPager)
         setupViewPager(viewPager)
@@ -31,6 +32,11 @@ class DetailsActivity : AppCompatActivity() {
         val tabLayout = findViewById<TabLayout>(R.id.tabs)
         tabLayout.setupWithViewPager(viewPager)
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun setupViewPager(viewPager: ViewPager){
@@ -50,8 +56,8 @@ class DetailsActivity : AppCompatActivity() {
         detailsFragment.arguments = detailsBundle
 
 
-        adapter.addItem(pictureFragment, "Picture")
-        adapter.addItem(detailsFragment, "Details")
+        adapter.addItem(pictureFragment, getString(R.string.picture))
+        adapter.addItem(detailsFragment, getString(R.string.details))
         viewPager.adapter = adapter
     }
 }
@@ -77,5 +83,4 @@ class DetailsPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getPageTitle(position: Int): CharSequence? {
         return fragmentTitleList[position]
     }
-
 }

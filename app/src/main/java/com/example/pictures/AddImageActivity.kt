@@ -19,7 +19,7 @@ class AddImageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_image)
-
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         addFinishButton.setOnClickListener {
             var goodInput = true
@@ -44,5 +44,10 @@ class AddImageActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

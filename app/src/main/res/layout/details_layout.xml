@@ -5,12 +5,12 @@
               android:layout_height="match_parent">
     <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/upperFragmentContainer">
+            android:layout_height="match_parent" android:layout_weight="5" android:id="@+id/upperFragmentContainer">
 
     </FrameLayout>
     <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/bottomFragmentContainer">
+            android:layout_height="match_parent" android:layout_weight="3" android:id="@+id/bottomFragmentContainer">
 
     </FrameLayout>
 </LinearLayout>

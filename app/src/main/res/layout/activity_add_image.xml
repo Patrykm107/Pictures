@@ -31,7 +31,9 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/addFinishButton" android:layout_marginBottom="@dimen/main_button_margin_bottom"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="@dimen/button_margin"
-            android:layout_marginEnd="@dimen/button_margin" android:backgroundTint="@color/colorPrimary"/>
+            android:layout_marginEnd="@dimen/button_margin" android:backgroundTint="@color/colorPrimary"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/addUrlInput"
+            android:textColor="@android:color/white" android:fontFamily="sans-serif-medium" android:textSize="24sp"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"

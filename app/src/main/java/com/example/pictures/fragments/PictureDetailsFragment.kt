@@ -1,4 +1,4 @@
-package com.example.pictures
+package com.example.pictures.fragments
 
 
 import android.graphics.Bitmap
@@ -9,6 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.example.pictures.DetailsActivity
+import com.example.pictures.R
+import com.example.pictures.managePics.MainAdapter.Companion.HASH
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_picture_details.view.*
 import kotlinx.android.synthetic.main.fragment_similar_pictures.view.*
@@ -28,7 +31,6 @@ class PictureDetailsFragment : Fragment() {
         transaction.replace(R.id.upperFragmentContainer, upperDetails)
 
         val similarPicsFragment = SimilarPicturesFragment()
-
         similarPicsFragment.arguments = arguments
         transaction.replace(R.id.bottomFragmentContainer, similarPicsFragment)
 
@@ -49,7 +51,8 @@ class PictureUpperDetailsFragment : Fragment(){
         val date = Date()
         date.time = arguments!!.getLong(DetailsActivity.picDateKey)
         view.picDateText.text = DateFormat.getDateTimeInstance().format(date)
-        view.picTagsText.append(" "+arguments!!.getStringArrayList(DetailsActivity.picTagsKey).toString())
+        val tags = arguments!!.getStringArrayList(DetailsActivity.picTagsKey)
+        for(tag in tags) view.picTagsText.append(" $HASH$tag")
         return view
     }
 }
@@ -61,15 +64,15 @@ class SimilarPicturesFragment : Fragment(){
     ): View? {
         val view = inflater.inflate(R.layout.fragment_similar_pictures, container, false)
         val similarPicsUrl = arguments!!.getStringArrayList(DetailsActivity.similarPicsUrlKey)
-        var tag = 1
-        for (url in similarPicsUrl) {
-            //Picasso.get().load(url).into(view.imageView)
-            tag++
+        val imageViews = arrayListOf<ImageView>()
+        for(i in 1..6) imageViews.add(view.findViewWithTag("$i"))
 
+        for ((i, url) in similarPicsUrl.withIndex()) {
             val target = object : com.squareup.picasso.Target {
 
                 override fun onBitmapLoaded(bitmap: Bitmap, from: Picasso.LoadedFrom) {
-                    view.imageView.setImageBitmap(bitmap)
+                    imageViews[i].setImageBitmap(bitmap)
+                    imageViews[i].visibility = View.VISIBLE
                 }
 
                 override fun onPrepareLoad(placeHolderDrawable: Drawable?) {}

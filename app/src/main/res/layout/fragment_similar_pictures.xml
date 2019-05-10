@@ -6,7 +6,7 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_gravity="bottom"
                                                    android:paddingBottom="@dimen/similar_pictures_bottom_padding"
-                                                   android:layout_height="wrap_content">
+                                                   android:layout_height="match_parent">
     <TextView
             android:text="@string/similar_pictures"
             android:layout_width="wrap_content"
@@ -16,8 +16,9 @@
             android:fontFamily="sans-serif-light"/>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@+id/similarPicsText"
-            android:id="@+id/constraintLayout" android:layout_marginTop="8dp">
+            android:layout_height="0dp" app:layout_constraintTop_toBottomOf="@+id/similarPicsText"
+            android:id="@+id/constraintLayout" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
                 android:orientation="vertical"
@@ -36,21 +37,22 @@
                 app:layout_constraintGuide_percent="0.5"/>
         <ImageView
                 android:tag="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/googleg_disabled_color_18"
+                android:layout_width="0dp"
+                android:layout_height="0dp" app:srcCompat="@mipmap/ic_launcher"
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                android:scaleType="centerInside" android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/guideline4"
                 android:layout_marginTop="@dimen/similar_pics_margin"
                 android:layout_marginStart="@dimen/similar_pics_margin"
                 android:layout_marginEnd="@dimen/similar_pics_margin"
-                android:layout_marginBottom="@dimen/similar_pics_margin"/>
+                android:layout_marginBottom="@dimen/similar_pics_margin" android:visibility="invisible"
+        />
         <ImageView
                 android:tag="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher"
+                android:layout_width="0dp"
+                android:layout_height="0dp" app:srcCompat="@mipmap/ic_launcher"
                 app:layout_constraintStart_toStartOf="@+id/guideline2"
                 android:id="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="parent"
@@ -59,11 +61,12 @@
                 android:layout_marginTop="@dimen/similar_pics_margin"
                 android:layout_marginStart="@dimen/similar_pics_margin"
                 android:layout_marginBottom="@dimen/similar_pics_margin"
-                android:layout_marginEnd="@dimen/similar_pics_margin"/>
+                android:layout_marginEnd="@dimen/similar_pics_margin" android:visibility="invisible"
+                android:scaleType="centerCrop"/>
         <ImageView
                 android:tag="3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher"
+                android:layout_width="0dp"
+                android:layout_height="0dp" app:srcCompat="@mipmap/ic_launcher"
                 android:id="@+id/imageView3"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -72,11 +75,12 @@
                 android:layout_marginTop="@dimen/similar_pics_margin"
                 android:layout_marginBottom="@dimen/similar_pics_margin"
                 android:layout_marginStart="@dimen/similar_pics_margin"
-                android:layout_marginEnd="@dimen/similar_pics_margin"/>
+                android:layout_marginEnd="@dimen/similar_pics_margin" android:visibility="invisible"
+                android:scaleType="centerCrop"/>
         <ImageView
                 android:tag="4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher"
+                android:layout_width="0dp"
+                android:layout_height="0dp" app:srcCompat="@mipmap/ic_launcher"
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/imageView4"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -85,11 +89,12 @@
                 android:layout_marginTop="@dimen/similar_pics_margin"
                 android:layout_marginStart="@dimen/similar_pics_margin"
                 android:layout_marginBottom="@dimen/similar_pics_margin"
-                android:layout_marginEnd="@dimen/similar_pics_margin"/>
+                android:layout_marginEnd="@dimen/similar_pics_margin" android:visibility="invisible"
+                android:scaleType="centerCrop"/>
         <ImageView
                 android:tag="5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher"
+                android:layout_width="0dp"
+                android:layout_height="0dp" app:srcCompat="@mipmap/ic_launcher"
                 app:layout_constraintStart_toStartOf="@+id/guideline2"
                 android:id="@+id/imageView5"
                 app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -98,11 +103,12 @@
                 android:layout_marginTop="@dimen/similar_pics_margin"
                 android:layout_marginStart="@dimen/similar_pics_margin"
                 android:layout_marginBottom="@dimen/similar_pics_margin"
-                android:layout_marginEnd="@dimen/similar_pics_margin"/>
+                android:layout_marginEnd="@dimen/similar_pics_margin" android:visibility="invisible"
+                android:scaleType="centerCrop"/>
         <ImageView
                 android:tag="6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher"
+                android:layout_width="0dp"
+                android:layout_height="0dp" app:srcCompat="@mipmap/ic_launcher"
                 android:id="@+id/imageView6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -111,6 +117,7 @@
                 android:layout_marginTop="@dimen/similar_pics_margin"
                 android:layout_marginStart="@dimen/similar_pics_margin"
                 android:layout_marginBottom="@dimen/similar_pics_margin"
-                android:layout_marginEnd="@dimen/similar_pics_margin"/>
+                android:layout_marginEnd="@dimen/similar_pics_margin" android:visibility="invisible"
+                android:scaleType="centerCrop"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

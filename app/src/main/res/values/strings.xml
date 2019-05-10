@@ -14,8 +14,7 @@
     <string name="adding_picture_failed">Adding picture failed</string>
     <string name="tags_no_spaces_error">Tags cannot contain spaces</string>
     <string name="default_string">Default</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="similar_pictures">Similar pictures</string>
+    <string name="picture">Picture</string>
+    <string name="details">Details</string>
 </resources>
